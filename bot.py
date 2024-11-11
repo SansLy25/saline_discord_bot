@@ -39,7 +39,8 @@ class MyClient(discord.Client):
             if last_left_time is None or (current_time - last_left_time) > 300:
                 if text_channel is not None:
                     await text_channel.send(
-                        f'- {get_random_emoji()}   {member.display_name} зашел в голосовой канал "{after.channel.name}"')
+                        f'- {get_random_emoji()}   **{member.display_name}**'
+                        f' зашел в голосовой канал **"{after.channel.name.capitalize()}"**')
 
         if before.channel is not None and after.channel is None:
             self.user_last_left[member.id] = time.time()
